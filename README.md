@@ -13,7 +13,7 @@ sudo xbps-install -S libportal libportal-gtk3 libportal-gtk4
  sudo xbps-install -S fluidsynth
 pip install --break-system-packages pyFluidSynth==1.3.1
  sudo xbps-install -f python3-yaml
-wget https://github.com/johna23-lab/bottles-for-linux-void/releases/download/12.14.1_6/bottles-2022.12.14.1_6.x86_64.xbps
+wget https://github.com/franckey02/bottles-Void-version/releases/download/51.24.26/bottles-51.24.26_1.x86_64.xbps
 xbps-rindex -a bottles-2022.12.14.1_6.x86_64.xbps
 sudo xbps-install -R $PWD bottles-2022.12.14.1_6
 sudo pip3 install --break-system-packages pycurl icoextract fvs patool PyYAML requests markdown mutagen pycryptodomex websockets brotli pathvalidate
