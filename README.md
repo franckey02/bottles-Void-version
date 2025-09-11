@@ -15,8 +15,8 @@ sudo xbps-install -S libportal libportal-gtk3 libportal-gtk4
 pip install --break-system-packages pyFluidSynth==1.3.1
  sudo xbps-install -f python3-yaml
 wget https://github.com/franckey02/bottles-Void-version/releases/download/51.24.26/bottles-51.24.26_1.x86_64.xbps
-xbps-rindex -a bottles-2022.12.14.1_6.x86_64.xbps
-sudo xbps-install -R $PWD bottles-2022.12.14.1_6
+xbps-rindex -a bottles-51.24.26_1.x86_64.xbps
+sudo xbps-install -R $PWD bottles-51.24.26_1
 sudo pip3 install --break-system-packages pycurl icoextract fvs patool PyYAML requests markdown mutagen pycryptodomex websockets brotli pathvalidate
 wget https://gitlab.com/TheEvilSkeleton/vkbasalt-cli/-/archive/v3.1.1/vkbasalt-cli-v3.1.1.tar.bz2
 tar xvfa vkbasalt-cli-v3.1.1.tar.bz2
