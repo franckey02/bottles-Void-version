@@ -20,14 +20,16 @@ APP_MINOR_VERSION = _version_array[1]
 PROFILE = get_option('profile')
 
 if PROFILE == 'development'
-	APP_VERSION += '-' + run_command(
-		'git', 'rev-parse', '--short', 'HEAD',
-		check: true
-	).stdout().strip()
+	git = find_program('git', required: false)
+	if git.found()
+		_git_hash = run_command(git, 'rev-parse', '--short', 'HEAD', check: false).stdout().strip()
+		if _git_hash != ''
+			APP_VERSION += '-' + _git_hash
+		endif
+	endif
 	APP_NAME += ' (Development)'
 	APP_ID += '.' + 'Devel'
 endif
-
 
 gnome = import('gnome')
 i18n = import('i18n')
