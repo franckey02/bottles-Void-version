@@ -1,15 +1,26 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/bottlesdevs/Bottles/main/data/icons/hicolor/scalable/apps/com.usebottles.bottles.svg" width="64">
   <h1 align="center">Bottles</h1>
-  <p align="center">Run Windows Software on Linux</p>
+  <p align="center">¡¡¡Abre facilmente programas de windows usando Bottles!!!</p>
 </div>
 
-<br/>
+### ¿Como instalar Bottles en Void Linux?<br/><br/></b>
+```
+sudo xbps-install -Sy libunwind
+sudo xbps-install wget cabextract
+wget https://github.com/johna23-lab/bottles-for-linux-void/releases/download/12.14.1_6/bottles-2022.12.14.1_6.x86_64.xbps
+xbps-rindex -a bottles-2022.12.14.1_6.x86_64.xbps
+sudo xbps-install -R $PWD bottles-2022.12.14.1_6
+sudo pip3 install --break-system-packages pycurl icoextract fvs patool PyYAML requests markdown mutagen pycryptodomex websockets brotli pathvalidate
+wget https://gitlab.com/TheEvilSkeleton/vkbasalt-cli/-/archive/v3.1.1/vkbasalt-cli-v3.1.1.tar.bz2
+tar xvfa vkbasalt-cli-v3.1.1.tar.bz2
+cd vkbasalt-cli-v3.1.1
+python setup.py install --user
+cd ..
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/ 
+```
 
 <div align="center">
-  <a href="https://flathub.org/apps/com.usebottles.bottles">
-    <img alt="Flathub" src="https://img.shields.io/flathub/downloads/com.usebottles.bottles" />
-  </a>
   <a href="https://hosted.weblate.org/engage/bottles">
     <img src="https://hosted.weblate.org/widgets/bottles/-/bottles/svg-badge.svg" />
   </a>
@@ -19,6 +30,9 @@
   <a href="https://github.com/bottlesdevs/Bottles/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg">
   </a>
+  <a href="https://github.com/bottlesdevs/Bottles/actions">
+    <img src="https://github.com/bottlesdevs/Bottles/workflows/Build%20release%20packages/badge.svg">
+  </a>
   <br>
   <a href="https://stopthemingmy.app" title="Please do not theme this app">
     <img src="https://stopthemingmy.app/badge.svg">
@@ -27,69 +41,77 @@
   <hr />
 
   <a href="https://docs.usebottles.com">Documentation</a> ·
-  <a href="https://github.com/orgs/bottlesdevs/discussions">Forums</a> ·
-  <a href="https://discord.gg/wF4JAdYrTR">Discord</a> ·
+  <a href="https://forums.usebottles.com">Forums</a> · 
+  <a href="https://t.me/usebottles">Telegram group</a> · 
   <a href="https://usebottles.com/funding">Funding</a>
 </div>
 
 <br/>
 
-![Bottles Dark](docs/screenshot-dark.png#gh-dark-mode-only)![Bottles Light](docs/screenshot-light.png#gh-light-mode-only)
 
-## Installation
+## 📚 Documentación
+Antes de abrir un nuevo tema, comprueba si ya se ha tratado el tema 
+en nuestra [documentación](https://docs.usebottles.com).
 
-<a href='https://flathub.org/apps/com.usebottles.bottles'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+Ten en cuenta que algunas páginas de la documentación aún se están redactando.
 
-## Contributing
 
-Refer to the [Contributing](CONTRIBUTING.md) page.
+## 🦾 Características
+- Creación de botellas basadas en entornos (un conjunto de reglas y dependencias)
+- Acceso a un entorno personalizable para todos tus experimentos
+- Instaladores automatizados
+- Ejecución de todos los ejecutables (.exe/.msi/.bat) en tus botellas, utilizando el menú contextual de tu administrador de archivos
+- Gestión y almacenamiento integrados para argumentos de archivos ejecutables.
+- Compatibilidad con variables de entorno personalizadas.
+- Sustituciones DLL simplificadas.
+- Gestiona e instala múltiples versiones de Wine/Proton/dxvk y cambia sobre la marcha.
+- Varias optimizaciones para un mejor rendimiento en juegos (esync, fsync, dxvk, caché, compilador de sombreadores, descarga... y mucho más).
+- Ajuste diferentes configuraciones de prefijos de Wine sin salir de Bottles.
+- Instalación automatizada de dxvk.
+- Sistema para comprobar las actualizaciones de Runner para la botella y reparación automática en caso de avería.
+- Instalador de dependencias integrado con comprobación de compatibilidad basada en un [repositorio](https://github.com/bottlesdevs/dependencies) impulsado por la comunidad.
+- Detección de programas instalados.
+- Administrador de tareas integrado para procesos Wine.
+- Fácil acceso a ProtonDB y WineHQ para obtener asistencia.
+- Sistema de actualización de configuraciones en todas las versiones de Bottles.
+- Copia de seguridad e importación de Bottles desde versiones anteriores y desde otros administradores (Lutris, POL, etc.).
+- Control de versiones de Bottles.
+- ¡Y mucho más que podrás descubrir al instalar Bottles!
 
-## Building
+Traducción realizada con la versión gratuita del traductor DeepL.com
 
-⚠️ Be sure to backup all your data before testing experimental builds of Bottles!
+### 🚧 En desarrollo
+- Capas (dependencias y programas en diferentes capas) [#510](https://github.com/bottlesdevs/Bottles/issues/510)
 
-There are two methods to build Bottles. The first and longer method is using `org.flatpak.Builder`, and the second but shorter method is building directly.
+## ↗️ Instalar
+Bottles se proporciona oficialmente como [Flatpak](https://flathub.org/apps/details/com.usebottles.bottles).
 
-### org.flatpak.Builder
+Lee [Aqui](https://docs.usebottles.com/getting-started/installation) Como instalar bottles en tu distribucion
 
-1. Install [`org.flatpak.Builder`](https://github.com/flathub/org.flatpak.Builder) from Flathub
-1. Clone `https://github.com/bottlesdevs/Bottles.git` (or your fork)
-1. Run `flatpak run org.flatpak.Builder --install --install-deps-from=flathub --default-branch=master --force-clean build-dir build-aux/com.usebottles.bottles.Devel.json` in the terminal from the root of the repository (use `--user` if necessary)
-1. Run `flatpak run com.usebottles.bottles.Devel` to launch it
+### Avisos para los mantenedores de paquetes
+Nos complace ver paquetes Bottles, pero les pedimos que respeten algunas pequeñas reglas:
+- El paquete debe ser «bottles». En otras distribuciones es posible utilizar sufijos (por ejemplo, «bottles-git» en Arch Linux para el paquete basado en git), mientras que en otras se requiere el formato RDNN (por ejemplo, «com.usebottles.bottles» en elementary OS y el repositorio Flathub). Se desaconseja cualquier otra nomenclatura.
+- No empaquete archivos externos y no realice cambios en el código, ni scripts duros. Obviamente, con la excepción de los archivos esenciales para el empaquetado.
+- La versión del paquete debe seguir el modelo CalVer (año.mes.día) y el ciclo de lanzamiento del proyecto. Bottles tiene dos lanzamientos al mes: uno el día 14 y otro el día 28. Cuando se lanza una revisión, esta se añade a la versión de lanzamiento (por ejemplo, 2022.2.14-1). Bottles también tiene un nombre en clave que no es obligatorio y que actualmente solo utiliza Flatpak.
 
-### Meson
+## Shortcuts
+| Atajo    |         Acción           |
+|:--------:|:------------------------:|
+| `Ctrl+Q` |      Cerrar Bottles      |
+| `Ctrl+R` | Recargar lista de Bottles|
+|   `F1`   | Ir a la documentación    |
+|  `Esc`   |       Ir atras           |
 
-Since Bottles is primarily and officially distributed as a Flatpak, we only provide instructions to directly build it inside a Flatpak environment:
+## Preguntas frecuentes
+- [¿Porqué Bottles?](https://docs.usebottles.com/faq/why-bottles)
+- [Donde esta Winetricks?](https://docs.usebottles.com/faq/where-is-winetricks)
+- [¿Las versiones anteriores quedarán obsoletas?](https://docs.usebottles.com/faq/updates-and-old-versions#older-versions-will-be-deprecated)
+- [¿Compatibilidad con versiones anteriores?](https://docs.usebottles.com/faq/updates-and-old-versions#backward-compatibility)
 
-1. Download and install the latest build of Bottles: [bottles-x86_64.zip](https://nightly.link/bottlesdevs/Bottles/workflows/build_flatpak/main/bottles-x86_64.zip). Unzip it, and run `flatpak install bottles.flatpak` (use `--user` if necessary)
-2. Run `flatpak run -d --filesystem=$PWD --command=bash com.usebottles.bottles.Devel` from the root of the repository, followed by `./build-aux/install.sh`. This will build Bottles and install it under the `build/` directory.
-3. Run `./build/bin/bottles` to launch Bottles
+## Código de conducta
+Este proyecto sigue el [Código de conducta de GNOME](https://wiki.gnome.org/Foundation/CodeOfConduct) Se espera que lo sigas en todos los espacios de Bottles, como este repositorio, las redes sociales del proyecto, los chats de mensajería y los foros. No se tolerará la intolerancia ni el acoso.
 
-Due to GNOME Builder limitations, Builder cannot build Bottles for the time being; see [GNOME/gnome-builder#2061](https://gitlab.gnome.org/GNOME/gnome-builder/-/issues/2061) for more context. This is the best workaround we can provide.
-
-## Code of Conduct
-This project follows the [GNOME Code of Conduct](https://wiki.gnome.org/Foundation/CodeOfConduct). You are expected to follow it in all Bottles spaces, such as this repository, the project's social media, messenger chats and forums. Bigotry and harassment will not be tolerated.
-
-## Sponsors
-
-<p align="center">
-  <a href="https://www.jetbrains.com/?from=bottles">
-    <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" width="200" />
-  </a>
-  <br><br>
-  <a href="https://www.gitbook.com/?ref=bottles">
-    <img src="https://www.gitbook.com/cdn-cgi/image/height=55,fit=contain,dpr=1,format=auto/https%3A%2F%2F2775338190-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FNkEGS7hzeqa35sMXQZ4X%252Flogo%252FTO5E3RjWKeaJmYYWMGWV%252Fspaces_gitbook_avatar-rectangle.png%3Falt%3Dmedia%26token%3Da34e957e-f044-4bee-abee-23946d2e9cfb" width="200" />
-  </a>
-  <br><br>
-  <a href="https://www.linode.com/?from=bottles">
-    <img src="https://usebottles.com/uploads/linode-brand.png" width="200" />
-  </a>
-  <br><br>
-  <a href="https://appwrite.io?from=bottles">
-    <img src="https://usebottles.com/uploads/built-with-appwrite.svg" width="200" />
-  </a>
-  <br>
-  <a href="https://hyperbit.it?from=bottles">
-    <img src="https://hyperbit.it-mil-1.linodeobjects.com/assets/full_dark_logo/HyperBit_Dark_Extended_Logo.png" width="200" />
-  </a>
-</p>
+## PAtrocinadores
+<a href="https://www.gitbook.com/?ref=bottles"><img height="55" src="https://www.gitbook.com/cdn-cgi/image/height=55,fit=contain,dpr=1,format=auto/https%3A%2F%2F2775338190-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FNkEGS7hzeqa35sMXQZ4X%252Flogo%252FTO5E3RjWKeaJmYYWMGWV%252Fspaces_gitbook_avatar-rectangle.png%3Falt%3Dmedia%26token%3Da34e957e-f044-4bee-abee-23946d2e9cfb" /></a>&nbsp;&nbsp;&nbsp;
+<a href="https://www.linode.com/?from=bottles"><img height="48" src="https://usebottles.com/uploads/linode-brand.png" /></a>&nbsp;&nbsp;&nbsp;
+<a href="https://appwrite.io?from=bottles"><img height="48" src="https://usebottles.com/uploads/built-with-appwrite.svg" /></a>
