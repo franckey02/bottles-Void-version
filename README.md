@@ -8,6 +8,8 @@
 ```
 sudo xbps-install -Sy libunwind
 sudo xbps-install wget cabextract
+sudo xbps-install gtksourceview5
+ sudo xbps-install -f python3-yaml
 wget https://github.com/johna23-lab/bottles-for-linux-void/releases/download/12.14.1_6/bottles-2022.12.14.1_6.x86_64.xbps
 xbps-rindex -a bottles-2022.12.14.1_6.x86_64.xbps
 sudo xbps-install -R $PWD bottles-2022.12.14.1_6
