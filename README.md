@@ -5,6 +5,7 @@
 </div>
 
 ### ¿Como instalar Bottles en Void Linux?<br/><br/></b>
+Nota: solo funciona el bottles-cli por ahora
 ```
 sudo xbps-install -Sy libunwind
 sudo xbps-install -S wget cabextract
