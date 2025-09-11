@@ -3,9 +3,9 @@ frontenddir = join_paths(pkgdatadir, 'bottles/frontend')
 
 fs = import('fs')
 
-if not fs.is_file('/' + '.flatpak-info')
-  error('file does not exist')
-endif
+#if not fs.is_file('/' + '.flatpak-info')
+#  error('file does not exist')
+#endif
 
 gnome = import('gnome')
 blueprints = custom_target('blueprints',
