@@ -9,11 +9,9 @@ Nota: solo funciona el bottles-cli por ahora
 ```
 sudo xbps-install -Sy libunwind
 sudo xbps-install -S wget cabextract
-sudo xbps-install -S gtksourceview5
-sudo xbps-install -S libportal libportal-gtk3 libportal-gtk4
- sudo xbps-install -S fluidsynth
+sudo xbps-install -S gtksourceview5 libportal libportal-gtk3 libportal-gtk4 fluidsynth wine wine-32bit
 pip install --break-system-packages pyFluidSynth==1.3.1
- sudo xbps-install -f python3-yaml
+sudo xbps-install -f python3-yaml
 wget https://github.com/franckey02/bottles-Void-version/releases/download/51.24.26/bottles-51.24.26_1.x86_64.xbps
 xbps-rindex -a bottles-51.24.26_1.x86_64.xbps
 sudo xbps-install -R $PWD bottles-51.24.26_1
